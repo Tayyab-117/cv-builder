@@ -1,51 +1,73 @@
+
 import Link from "next/link";
 import TemplateCardGrid from "@/components/TemplateCard";
+import Reviews from "@/components/Reviews";
+import Brands from "@/components/Brands";
 
 export default function Home() {
   return (
-    <main className="max-w-6xl mx-auto px-4 py-10 space-y-12">
-      <section className="grid md:grid-cols-2 gap-8 items-center">
-        <div>
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight">Build a professional CV and land your next job</h1>
-          <p className="mt-3 text-slate-600">Free, ATS-friendly templates. Guided builder. Export as PDF or Word.</p>
-          <div className="mt-6 flex gap-3">
-            <Link href="/builder/classic-ats" className="px-4 py-3 rounded-xl bg-brand text-white">Create your CV</Link>
-            <Link href="/templates" className="px-4 py-3 rounded-xl border">Browse templates</Link>
-          </div>
-          <div className="mt-6">
-            <div className="flex flex-wrap items-center gap-2 text-xs text-slate-500">
-              <span className="px-2 py-1 rounded-full bg-slate-100">ATS friendly</span>
-              <span className="px-2 py-1 rounded-full bg-slate-100">100% free</span>
-              <span className="px-2 py-1 rounded-full bg-slate-100">No signup required</span>
+    <main className="">
+      {/* HERO */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-50 via-white to-sky-50" />
+        <div className="relative max-w-6xl mx-auto px-4 pb-12 pt-8">
+          <header className="flex items-center justify-between py-2">
+            <Link href="/" className="font-semibold text-slate-800">CVCraft</Link>
+            <nav className="hidden md:flex gap-6 text-sm text-slate-600">
+              <Link href="/templates">Templates</Link>
+              <a href="#reviews">Reviews</a>
+              <a href="#brands">Brands</a>
+            </nav>
+            <div className="flex gap-2">
+              <Link href="/builder/classic-ats" className="px-4 py-2 rounded-xl bg-slate-900 text-white hover:bg-slate-800">Create new CV</Link>
+              <Link href="/templates" className="px-4 py-2 rounded-xl border hover:bg-white">See templates</Link>
+            </div>
+          </header>
+
+          <div className="grid md:grid-cols-2 gap-10 items-center mt-8">
+            <div>
+              <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
+                Create a job‑ready CV in minutes
+              </h1>
+              <p className="mt-4 text-slate-600">
+                Super clean, ATS‑friendly designs inspired by the best on Dribbble and Wix.
+                Export to <strong>PDF</strong> or <strong>Word</strong>. Always free.
+              </p>
+              <div className="mt-6 flex flex-wrap gap-3">
+                <Link href="/builder/classic-ats" className="px-5 py-3 rounded-2xl bg-indigo-600 text-white hover:bg-indigo-700">Create new CV</Link>
+                <Link href="/templates" className="px-5 py-3 rounded-2xl border hover:bg-white">See templates</Link>
+              </div>
+              <div className="mt-4 text-xs text-slate-500 flex flex-wrap gap-2">
+                <span className="px-2 py-1 bg-white border rounded-full">ATS friendly</span>
+                <span className="px-2 py-1 bg-white border rounded-full">100% free</span>
+                <span className="px-2 py-1 bg-white border rounded-full">No signup needed</span>
+              </div>
+            </div>
+            <div className="rounded-3xl border bg-white/60 p-4 shadow-sm backdrop-blur">
+              <div className="h-[420px] grid place-items-center text-slate-400">Live preview appears in builder</div>
             </div>
           </div>
         </div>
-        <div className="rounded-2xl border p-4 bg-gradient-to-br from-slate-50 to-white">
-          {/* Placeholder preview panel */}
-          <div className="h-96 grid place-items-center text-slate-400">Live preview on the right in builder</div>
-        </div>
       </section>
 
-      <section className="space-y-4">
+      {/* FEATURED TEMPLATES */}
+      <section className="max-w-6xl mx-auto px-4 py-12 space-y-6">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-semibold">Featured CV Templates</h2>
-          <Link href="/templates" className="text-brand">See all</Link>
+          <h2 className="text-2xl font-semibold">Featured templates</h2>
+          <Link href="/templates" className="text-indigo-600 hover:text-indigo-700 text-sm">View all</Link>
         </div>
         <TemplateCardGrid />
       </section>
 
-      <section className="grid md:grid-cols-3 gap-6">
-        {[
-          { title: "Choose a template", text: "Pick from professional and modern designs." },
-          { title: "Fill in your details", text: "Guided, step-by-step form with autosave." },
-          { title: "Download & apply", text: "Export as PDF or Word and start applying." },
-        ].map((s) => (
-          <div key={s.title} className="rounded-2xl border p-5 bg-white">
-            <div className="text-lg font-medium">{s.title}</div>
-            <div className="text-sm text-slate-600 mt-2">{s.text}</div>
-          </div>
-        ))}
-      </section>
+      {/* BRANDS */}
+      <div id="brands">
+        <Brands />
+      </div>
+
+      {/* REVIEWS */}
+      <div id="reviews">
+        <Reviews />
+      </div>
     </main>
   );
 }
