@@ -1,8 +1,8 @@
 
 import Link from "next/link";
-import TemplateCardGrid from "@/components/TemplateCard";
-import Reviews from "@/components/Reviews";
-import Brands from "@/components/Brands";
+import TemplateCardGrid from "../components/TemplateCard";
+import Reviews from "../components/Reviews";
+import Brands from "../components/Brands";
 
 export default function Home() {
   return (
