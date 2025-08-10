@@ -1,5 +1,5 @@
 import Link from "next/link";
-import TemplateCardGrid from "@/components/TemplateCard.tsx";
+import TemplateCardGrid from "@/components/TemplateCard";
 
 export default function Home() {
   return (
