@@ -33,7 +33,7 @@ export default function ExportMenu() {
           {resume.education.map((e, i) => (
             <View key={i} style={styles.row}><Text>{e.degree}, {e.school}</Text><Text>{e.start} – {e.end || "Present"}</Text></View>
           ))}
-          {resume.skills.length ? (<><Text style={styles.h2}>Skills</Text><Text>{resume.skills.join(", ")}</Text></>) : null}
+          {resume.skills.length ? (<><Text style={styles.h2}>Skills</Text><Text>{resume.skills.map(s => s.name).join(", ")}</Text></>) : null}
         </Page>
       </Document>
     );

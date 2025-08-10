@@ -28,7 +28,7 @@ export type Resume = {
   summary?: string;
   experience: Experience[];
   education: Education[];
-  skills: string[];
+  skills: { name: string }[];
   projects?: { name: string; link?: string; summary?: string }[];
   certifications?: { name: string; issuer?: string; year?: string }[];
   hobbies?: string[];

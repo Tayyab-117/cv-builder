@@ -15,7 +15,7 @@ const schema = z.object({
     location: z.string().optional(),
   }),
   summary: z.string().optional(),
-  skills: z.array(z.string()).default([]),
+  skills: z.array(z.object({ name: z.string().optional().default("") })).default([]),
   experience: z.array(z.object({
     company: z.string(),
     role: z.string(),
@@ -124,13 +124,13 @@ export default function ResumeForm() {
       <section>
         <div className="flex items-center justify-between">
           <h2 className="text-sm font-semibold text-slate-700">Skills</h2>
-          <button type="button" onClick={() => skills.append("")} className="text-brand">+ Add skill</button>
+          <button type="button" onClick={() => skills.append({ name: "" })} className="text-brand">+ Add skill</button>
         </div>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-2 mt-2">
-          {skills.fields.map((f, i) => (
-            <input key={f.id} className="rounded-lg border p-2" placeholder="e.g., Python" {...form.register(`skills.${i}` as const)} />
-          ))}
-        </div>
+  {skills.fields.map((f, i) => (
+    <input key={f.id} className="rounded-lg border p-2" placeholder="e.g., Python" {...form.register(`skills.${i}.name` as const)} />
+  ))}
+</div>
       </section>
     </form>
   );

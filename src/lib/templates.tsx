@@ -84,7 +84,7 @@ function ClassicATS({ data }: { data: Resume }) {
       {data.skills?.length ? (
         <section className="mb-2">
           <h2 className="uppercase tracking-wide text-xs text-slate-600 font-semibold mb-1">Skills</h2>
-          <div className="text-sm">{data.skills.join(" · ")}</div>
+          <div className="text-sm">{data.skills.map(s => s.name).join(" · ")}</div>
         </section>
       ) : null}
     </div>
@@ -108,7 +108,7 @@ function ModernClean({ data }: { data: Resume }) {
             <section>
               <h2 className="text-xs uppercase font-semibold text-slate-600 mb-2">Skills</h2>
               <ul className="text-sm space-y-1">
-                {data.skills.map((s, i) => <li key={i} className="rounded bg-slate-100 px-2 py-1">{s}</li>)}
+                {data.skills.map((s, i) => <li key={i} className="rounded bg-slate-100 px-2 py-1">{s.name}</li>)}
               </ul>
             </section>
           ) : null}

@@ -19,7 +19,7 @@ export async function generateDocx(resume: Resume): Promise<Blob> {
           new Paragraph({ children: [new TextRun({ text: `${ed.degree}, ${ed.school}` })] }),
           new Paragraph({ children: [new TextRun({ text: `${ed.start} – ${ed.end || "Present"}` })] }),
         ]),
-        ...(resume.skills.length ? [new Paragraph({ children: [new TextRun({ text: "Skills", bold: true })] }), new Paragraph(resume.skills.join(", "))] : [])
+        ...(resume.skills.length ? [new Paragraph({ children: [new TextRun({ text: "Skills", bold: true })] }), new Paragraph(resume.skills.map(s => s.name).join(", "))] : [])
       ]
     }]
   });
