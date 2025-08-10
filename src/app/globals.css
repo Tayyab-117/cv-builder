@@ -1,0 +1,14 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0B1020;
+}
+
+html, body, #__next { height: 100%; }
+
+/* print styles for A4 */
+@media print {
+  @page { size: A4; margin: 16mm; }
+}
